@@ -1,0 +1,115 @@
+{
+    "$id": "https://opencatalogi.nl/example.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "title": "Adres",
+    "type": "object",
+    "properties": {
+      "pandIdentificatie": {
+        "type": "string",
+        "example": "pandIdentificatie=0226100000008856",
+        "description": "Identificatie van een pand uit de BAG.",
+        "maxLength": 16
+      },
+      "adresseerbaarObjectIdentificatie": {
+        "type": "string",
+        "example": "0226010000038820",
+        "$ref": "#/definitions/AdresseerbaarObject",
+        "description": "De identificatie van een adresseerbaar object uit de BAG.",
+        "enum": [
+            "verblijfsobject",
+            "standplaats",
+            "ligplaats"
+          ],
+        "maxLength": 16,
+        "required": true
+      },
+      "expand": {
+        "type": "string",
+        "description": "Hiermee kun je opgeven welke gerelateerde resources meegeleverd moeten worden, en hun inhoud naar behoefte aanpassen. Hele resources of enkele properties geef je in de expand parameter kommagescheiden op. Properties die je wil ontvangen geef je op met de resource-naam gevolgd door de property naam, met daartussen een punt. In de definitie van het antwoord kun je bij _embedded zien welke gerelateerde resources meegeleverd kunnen worden. "
+      },
+      "fields":{
+        "type": "string",
+        "description":"Hiermee kun je de inhoud van de resource naar behoefte aanpassen door een door komma's gescheiden lijst van property namen op te geven. Bij opgave van niet-bestaande properties wordt een 400 Bad Request teruggegeven. Wanneer de fields parameter niet is opgegeven, worden alle properties met een waarde teruggegeven."
+    },
+    "page": {
+        "type": "integer",
+        "default": 1,
+        "description": "Pagina nummer",
+        "minLength": 1
+    },
+    "pageSize": {
+        "type": "integer",
+        "default":20,
+        "maxLength": 100
+    },
+    "postcode": {
+        "type": "string",
+        "example": {
+            "items": {
+                "example": "postcode=6922KZ"
+            },
+            "example":"postcode=6922 KZ"
+        },
+        "description": "Postcode van het adres."
+    },
+    "huisnummer": {
+        "type": "integer",
+        "example": "huisnummer=1",
+        "description": "Huisnummer van het adres.",
+        "minLength": 1,
+        "maxLength": 99999
+    },
+    "huisletter": {
+        "type": "string",
+        "example": "huisletter=A",
+        "description": "Een toevoeging (in de vorm van een letter) aan een huisnummer van het adres. Bijvoorbeeld: Bij adres: Belgiëlaan 1 A2, 2391 PH HAZERSWOUDE-DORP, is 1 het huisnummer en A de huisletter."
+    },
+    "exacteMatch": {
+        "type": "boolean",
+        "default": false,
+        "example": "exacteMatch=true",
+        "description": "Geeft aan of de resultaten van de zoekopdracht exact overeen moeten komen met de opgegeven parameters."
+    },
+    "q": {
+        "type": "string",
+        "example": "pandIdentificatie=0226100000008856",
+        "description": "Zoekterm op postcode, woonplaats, straatnaam, huisnummer, huisletter, huisnummertoevoeging.",
+        "enum":[
+            "postcode",
+            "woonplaats",
+            "straatnaam",
+            "huisnummer",
+            "huisletter",
+            "huisnummertoevoeging"
+        ],
+        "minLength": 1,
+        "maxLength": 255
+    },
+    "nummeraanduidingidentificatie": {
+        "type": "string",
+        "example": "0226200000038923",
+        "description": "Identificatie van een nummeraanduiding uit de BAG. Deze is 16 cijfers lang.",
+        "required": true
+    },
+    "woonplaatsidentificatie": {
+        "type": "string",
+        "example": "2096",
+        "description": "De identificatie van een woonplaats.",
+        "required": true
+    },
+    "openbareruimteidentificatie": {
+        "type": "string",
+        "example": "0226300000136166",
+        "description": "Identificatie van een object uit de BAG. Deze is 16 cijfers lang.",
+        "required": true
+    }
+  },
+  "required":[
+    "adresseerbaarObjectIdentificatie",
+    "nummeraanduidingidentificatie",
+    "woonplaatsidentificatie",
+    "openbareruimteidentificatie"
+  ]
+}
+  

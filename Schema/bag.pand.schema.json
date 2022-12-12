@@ -1,0 +1,77 @@
+{
+    "$id": "https://opencatalogi.nl/example.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "title": "Pand",
+    "type": "object",
+    "properties": {
+      "pandidentificatie": {
+        "type": "string",
+        "example": "0226100000008856",
+        "description": "Identificatie van een pand uit de BAG. Deze is 16 cijfers lang.",
+        "required": true
+      },
+      "adresseerbaarObjectIdentificatie": {
+        "type": "string",
+        "example": "adresseerbaarObjectIdentificatie=0226010000038820",
+        "$ref": "#/definitions/AdresseerbaarObject",
+        "description": "De identificatie van een adresseerbaar object uit de BAG. Deze is 16 cijfers lang en kan een verblijfsobject, een standplaats of een ligplaats zijn."
+      },
+      "nummeraanduidingIdentificatie": {
+        "type": "string",
+        "example": "nummeraanduidingIdentificatie=0226200000038923",
+        "description": "Identificatie van een nummeraanduiding uit de BAG.",
+        "minLength": 16,
+        "maxLength": 16
+      },
+      "locatie": {
+        "type": "array",
+        "format": "number",
+        "items": {
+            "maxLength": 2
+        },
+        "example": "locatie=196733.51,439931.89",
+        "description": "Coördinaten van een locatie die als query-parameter gebruikt wordt om een object te zoeken. Let op, explode is false dus het formaat is ?locatie=196733.51,439931.89"
+      },
+      "bbox": {
+        "type": "array",
+        "format": "number",
+        "example": "bbox=196733.51,439931.89,196833.51,440031.89",
+        "$ref":"#/definitions/AdresseerbaarObject",
+        "description": "Rechthoek waarbinnen het object dat je zoekt valt. Objecten die de rand van de rechthoek raken of kruisen worden in het zoekresultaat meegenomen. "
+    },
+    "statusPand":{
+        "type": "array",
+        "format": "StatusPandEnum",
+        "items": {
+            "title": "StatusPandEnum",
+            "type": "non-empty",
+            "enum": [
+                "Bouwvergunning verleend",
+                "Bouw gestart",
+                "Pand in gebruik (niet ingemeten)",
+                "Pand in gebruik",
+                "Verbouwing pand",
+                "Sloopvergunning verleend",
+                "Pand buiten gebruik"
+            ]
+          },
+          "description": "Status van het pand."    
+    },
+    "geconstateerd": {
+        "type": "boolean",
+        "description": "Geeft aan of naar geconstateerde objecten moet worden gezocht."
+    },
+    "bouwjaar":{
+        "type":"object",
+        "format":"BouwjaarFilter",
+        "items": {
+            "title": "BouwjaarFilter"
+        },
+        "description": "Bouwjaar van het pand. Geeft het minimale en/of maximale bouwjaar aan van het pand waarnaar moet worden gezocht. Een bouwjaar is een natuurlijk getal tussen 0 (minimaal) en 9999 (maximaal). Bv: bouwjaar[min]=1970&bouwjaar[max]=2010"
+    }
+  },
+  "required": [
+    "pandidentificatie"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+    "$id": "https://opencatalogi.nl/example.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "title": "AdresseerbaarObject",
+    "type": "object",
+    "properties": {
+      "adresseerbaarObjectIdentificatie": {
+        "type": "string",
+        "example": "0226010000038820",
+        "description": "De identificatie van een adresserbaar object uit de BAG. Deze is 16 cijfers lang en kan een verblijfsobject, een standplaats of een ligplaats zijn.",
+        "enum": [
+            "verblijfsobject",
+            "standplaats",
+            "ligplaats"
+          ],
+          "required": true
+      },
+      "nummeraanduidingIdentificatie": {
+        "type": "string",
+        "example": "nummeraanduidingIdentificatie=0226200000038923",
+        "description": "Identificatie van een nummeraanduiding uit de BAG. Deze is 16 cijfers lang."
+      },
+      "pandIdentificaties": {
+        "type": "array",
+        "format": "non-empty",
+        "$ref": "#/definitions/Pand",
+        "example": "pandIdentificaties=022610000000",
+        "description": "Age in years which must be equal to or greater than zero."
+      },
+      "geconstateerd":{
+        "type": "boolean",
+        "description": "Geeft aan of naar geconstateerde objecten moet worden gezocht."
+      },
+      "type":{
+        "type": "string",
+        "format": "TypeAdresseerbaarObjectEnum",
+        "items": {
+            "title": "TypeAdresseerbaarObjectEnum",
+            "enum": [
+                "verblijfsobject",
+                "standplaats",
+                "ligplaats"
+            ]
+        },
+        "description": "Geeft aan of het adresseerbaar object een ligplaats, standplaats of verblijfsobject is."
+      },
+      "gebruiksdoelen": {
+        "type": "array",
+        "format": "GebruiksdoelEnum",
+        "items": {
+            "type": "non-empty Items Enum",
+            "title": "GebruiksdoelEnum",
+            "enum": [
+                "woonfunctie",
+                "bijeenkomstfunctie",
+                "celfunctie",
+                "gezondheidszorgfunctie",
+                "industriefunctie",
+                "kantoorfunctie",
+                "logiesfunctie",
+                "onderwijsfunctie",
+                "sportfunctie",
+                "winkelfunctie",
+                "overige gebruiksfunctie"
+            ]
+        },
+        "description": "De gebruiksdoelen van het verblijfsobject zoals in de vergunning is opgenomen of bij constatering is vastgesteld. Als een verblijfsobject één van de gebruiksdoelen in deze lijst heeft, dan wordt het verblijfsobject in het zoekresultaat meegenomen."
+      },
+      "bbox": {
+        "type": "array",
+        "format": "bbox",
+        "example": "bbox=196733.51,439931.89,196833.51,440031.89",
+        "items": {
+            "title":"bbox",
+            "type":"number",
+            "minLength": 4,
+            "maxLength": 4
+        },
+        "description": "Rechthoek waarbinnen het object dat je zoekt valt. Objecten die de rand van de rechthoek raken of kruisen worden in het zoekresultaat meegenomen. "
+      },
+      "oppervlakte": {
+        "type": "object",
+        "format": "OppervlakteFilter",
+        "description": "Geef de minimale en maximale oppervlakte op waarbinnen je wilt zoeken (in m2). Alleen verblijfsobjecten hebben een oppervlakte en kunnen met deze parameter worden gevonden. Ligplaatsen en standplaatsen hebben geen oppervlakte en kunnen met deze parameter niet worden gevonden. De oppervlakte van een verblijfsobject is een natuurlijk getal tussen 1 (minimaal) en 999999 (maximaal). Het is niet toegestaan voor min een grotere waarde op te geven dan voor max. Is min > max dan treedt een foutmelding op. Bv: oppervlakte[min]=100&oppervlakte[max]=200"
+      }
+    }
+  }
+  
