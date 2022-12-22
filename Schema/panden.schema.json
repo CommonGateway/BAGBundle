@@ -1,0 +1,42 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/panden.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "panden",
+    "type": "object",
+    "properties": {
+        "identificatie": {
+            "type": "string"
+        },
+        "domein": {
+            "type": "string"
+        },
+        "geometrie": {
+            "$ref": "#/definitions/geometrie"
+        },
+        "oorspronkelijkBouwjaar": {
+            "type": "integer"
+        },
+        "status": {
+            "type": "string"
+        },
+        "geconstateerd": {
+            "type": "boolean"
+        },
+        "documentdatum": {
+            "type": "string"
+        },
+        "documentnummer": {
+            "type": "string"
+        },
+        "adresseerbaarObjectIdentificaties": {
+            "type": "string"
+        },
+        "nummeraanduidingIdentificaties": {
+            "$ref": "#/definitions/nummeraanduidingIdentificaties"
+        },
+        "mogelijkOnjuist": {
+            "$ref": "#/definitions/mogelijkOnjuist"
+        }
+    }
+}

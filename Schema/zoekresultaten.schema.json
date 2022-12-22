@@ -1,0 +1,15 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/zoekresultaten.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "zoekresultaten",
+    "type": "object",
+    "properties": {
+        "omschrijving": {
+            "type": "string"
+        },
+        "identificatie": {
+            "type": "string"
+        }
+    }
+}
