@@ -1,0 +1,35 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.nummeraanduidingMogelijkOnjuist.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "NummeraanduidingMogelijkOnjuist",
+    "description": "Een postcode, huisnummer met mogelijk een huisletter en huisnummertoevoeging die hoort bij een verblijfsobject, een standplaats of een ligplaats.",
+    "type": "object",
+    "properties": {
+        "huisnummer": {
+            "type": "boolean"
+        },
+        "huisletter": {
+            "type": "boolean"
+        },
+        "huisnummertoevoeging": {
+            "type": "boolean"
+        },
+        "postcode": {
+            "type": "boolean"
+        },
+        "status": {
+            "type": "boolean"
+        },
+        "woonplaatsIdentifcatie": {
+            "type": "boolean"
+        },
+        "openbareRuimteIdentificatie": {
+            "type": "boolean"
+        },
+        "toelichting": {
+            "type": "string",
+            "example": "Woonplaats bestaat mogelijk niet."
+        }
+    }
+}

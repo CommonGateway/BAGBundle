@@ -1,0 +1,92 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.adresUitgebreid.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "AdresUitgebreid",
+    "description": "Het adres is de benaming van een locatie bestaande uit straatnaam, huisnummer, (mogelijk met huisletter, huisnummertoevoeging, postcode) en woonplaatsnaam. Dit is de vereenvoudigde samenstelling van de officiële naamgeving gebaseerd op woonplaats, openbare ruimte en nummeraanduiding.",
+    "type": "object",
+    "properties": {
+        "straat": {
+            "type": "string",
+            "description": "Een naam die door de gemeente aan een openbare ruimte is gegeven.",
+            "example": "Laan van de landinrichtingscommissie Duiven-Westervoort"
+        },
+        "huisnummer": {
+            "type": "integer",
+            "description": "Een nummer dat door de gemeente aan een adresseerbaar object is gegeven.",
+            "example": "1"
+        },
+        "huisletter": {
+            "type": "string",
+            "description": "Een toevoeging aan een huisnummer in de vorm van een letter die door de gemeente aan een adresseerbaar object is gegeven.",
+            "example": "A"
+        },
+        "huisnummertoevoeging": {
+            "type": "string",
+            "description": "Een toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter die door de gemeente aan een adresseerbaar opject is gegeven.",
+            "example": "bis"
+        },
+        "postcode": {
+            "type": "string",
+            "description": "De door PostNL vastgestelde code die bij een bepaalde combinatie van een straatnaam en een huisnummer hoort.",
+            "example": "6922KZ"
+        },
+        "woonplaats": {
+            "type": "string",
+            "description": "Een woonplaats is een gedeelte van het grondgebied van de gemeente met een naam.",
+            "example": "Duiven"
+        },
+        "adresregel1": {
+            "type": "string",
+            "description": "De eerste regel van het adres zoals deze gebruikt kan worden in postadressering.",
+            "example": "Ln vd l D-Westervoort 1"
+        },
+        "adresregel2": {
+            "type": "string",
+            "description": "De tweede regel van de adres zoals deze gebruikt kan worden in postadressering.",
+            "example": "6922 KZ DUIVEN"
+        },
+        "korteNaam": {
+            "type": "string",
+            "description": "De officiële openbareruimtenaam of een verkorte versie. Beiden hebben maximaal 24 tekens.",
+            "example": "Ln vd l D-Westervoort",
+            "maxLength": "24"
+        },
+        "nummeraanduidingIdentificatie": {
+            "type": "string",
+            "description": "Fungeert ook als identificatie van het adres.",
+            "example": "0226200000038923"
+        },
+        "openbareRuimteIdentificatie": {
+            "type": "string",
+            "example": "022630000000136166"
+        },
+        "woonplaatsIdentifcatie": {
+            "type": "string",
+            "example": "2096"
+        },
+        "adresseerbaarObjectIdentieficatie": {
+            "type": "string",
+            "example": "0226010000038820"
+        },
+        "pandIdentificaties": {
+            "type": "string",
+            "description": "Identificatie(s) van het pand of de panden waar het verblijfsobject deel van is.",
+            "example": "0226100000008856"
+        },
+        "isNevenadres": {
+            "type": "boolean",
+            "description": "Indicatie dat dit adres een nevenadres is van een adresseerbaar object. Het adres is een hoofdadres als deze indicatie niet wordt meegeleverd."
+        },
+        "geconstateerd": {
+            "type": "boolean",
+            "description": "Indicatie dat dit adres in de registratie is opgenomen door een feitelijke constatering, zonder dat er sprake was van een brondocument/vergunning. Het adres is mogelijk illegaal."
+        },
+        "mogelijkOnjuist": {
+            "type": "array",
+            "items": {
+                "$ref": "https://vng.opencatalogi.nl/schemas/bag.adresMogelijkOnjuist.schema.json"
+            }
+        }
+    }
+}

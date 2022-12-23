@@ -1,0 +1,88 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.adresseerbaarObject.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "AdresseerbaarObject",
+    "description": "Een adresseerbaarobject is een standplaats, ligplaats of verblijfsobject.",
+    "type": "object",
+    "properties": {
+        "identificatie": {
+            "type": "string",
+            "description": "Dit is de identificatie van een verblijfsobject, standplaats of ligplaats.",
+            "example": "0226010000038820"
+        },
+        "domein": {
+            "type": "string",
+            "description": "Het domein waartoe de identificatie behoort."
+        },
+        "type": {
+            "type": "string",
+            "enum": [
+                "verblijfsobject",
+                "standp[laats",
+                "ligplaats"
+            ]
+        },
+        "documentdatum": {
+            "type": "string",
+            "description": "De vaststellingsdatum van het brondocument dat de basis is voor opname, wijziging of een verwijdering van een object.",
+            "example": "2019-11=22",
+            "format": "date"
+        },
+        "gebruiksdoelen": {
+            "type": "string",
+            "enum": [
+                "woonfunctie",
+                "bijeenkomstfunctie",
+                "celfunctie",
+                "gezondheidszorgfunctie",
+                "industriefunctie",
+                "kantoorfunctie",
+                "logiesfunctie",
+                "onderwijsfunctie",
+                "sportfunctie",
+                "winkelfunctie",
+                "overige gebruiksfunctie"
+            ]
+        },
+        "geconstateerd": {
+            "type": "boolean",
+            "description": "Indicatie dat een standplaats, ligplaats of verblijfsobject in de registratie is opgenomen door een feitelijke constatering, zonder dat er een brondocument aan ten grondslag ligt. Het adresseerbaar object is mogelijk illegaal."
+        },
+        "geometrie": {
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.puntOfVlak.schema.json"
+        },
+        "pandIdentificaties": {
+            "type": "string",
+            "description": "Identificatie(s) van het pand of de panden waar het verblijfsobject deel van is.",
+            "example": "0226100000008856"
+        },
+        "nummeraanduidingIdentificatie": {
+            "type": "array",
+            "description": "Identificatie(s) van de hoofd- en nevenadressen van de standplaats, ligplaats of verblijfsobject.",
+            "items": {
+                "$ref": "https://vng.opencatalogi.nl/schemas/bag.nummeraanduidingIdentificatieArray.schema.json"
+            }
+        },
+        "oppervlakte": {
+            "type": "integer"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "Plaats aangewezen",
+                "Verblijfsobject gevormd",
+                "Verblijfsobject in gebruik (niet ingemeten)",
+                "Verblijfsobject in gebruik",
+                "Verbouwing verblijfsobject",
+                "Verblijfsobject buiten gebruik"
+            ]
+        },
+        "mogelijkOnjuist": {
+            "type": "array",
+            "items": {
+                "$ref": "https://vng.opencatalogi.nl/schemas/bag.adresseerbaarObjectMogelijkOnjuist.schema.json"
+            }
+        }
+    }
+}

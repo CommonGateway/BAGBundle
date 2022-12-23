@@ -1,0 +1,29 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.openbareRuimteMogelijkOnjuist.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "OpenbareRuimteMogelijkOnjuist",
+    "description": "Wanneer true is de waarde mogelijk onjuist en wordt juistheid op dit moment onderzocht. Zie toelichting.",
+    "type": "object",
+    "properties": {
+        "naam": {
+            "type": "boolean"
+        },
+        "korteNaam": {
+            "type": "boolean"
+        },
+        "type": {
+            "type": "boolean"
+        },
+        "status": {
+            "type": "boolean"
+        },
+        "woonplaatsIdentifcatie": {
+            "type": "boolean"
+        },
+        "toelichting": {
+            "type": "string",
+            "example": "Openbare ruimtenaam komt mogelijk niet overeen met de vermelding in het straatnaambesluit."
+        }
+    }
+}

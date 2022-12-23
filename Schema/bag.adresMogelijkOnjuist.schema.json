@@ -1,0 +1,50 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.adresMogelijkOnjuist.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "ZoekResultaat",
+    "description": "Wanneer true is de waarde mogelijk onjuist en wordt juistheid op dit moment onderzocht. Zie toelichting.",
+    "type": "object",
+    "properties": {
+        "adresregel1": {
+            "type": "boolean"
+        },
+        "adresregel2": {
+            "type": "boolean"
+        },
+        "korteNaam": {
+            "type": "boolean"
+        },
+        "straat": {
+            "type": "boolean"
+        },
+        "huisnummer": {
+            "type": "boolean"
+        },
+        "huisletter": {
+            "type": "boolean"
+        },
+        "huisnummertoevoeging": {
+            "type": "boolean"
+        },
+        "postcode": {
+            "type": "boolean"
+        },
+        "woonplaats": {
+            "type": "boolean"
+        },
+        "nummeraanduidingIdentificatie": {
+            "type": "boolean"
+        },
+        "openbareRuimteIdentificatie": {
+            "type": "boolean"
+        },
+        "woonplaatsIdentifcatie": {
+            "type": "boolean"
+        },
+        "toelichting": {
+            "type": "string",
+            "example": "Geometrie of woonplaatsgrens is mogelijk onjuist, waardoor gaten of overlappingen ontstaan in de registratie van woonplaatsen. Gevolg kan zijn dat een object in een verkeerde woonplaats, in twee woonplaatsen, of in geen enkele woonplaats ligt."
+        }
+    }
+}
