@@ -1,0 +1,44 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.polygonGeo.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "type": "object",
+    "title": "PolygonGeo",
+    "properties": {
+        "type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "Polygon"
+            ]
+        },
+        "coordinates": {
+            "required": true,
+            "type": "number",
+            "coordinates": [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              ]
+        }
+    },
+    "required": [
+        "type",
+        "coordinates"
+    ]
+}

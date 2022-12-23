@@ -1,0 +1,23 @@
+{
+        "$id": "https://vng.opencatalogi.nl/schemas/bag.woonplaatsMogelijkOnjuist.schema.json",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "version": "0.1",
+        "type": "object",
+        "title": "WoonplaatsMogelijkOnjuist",
+        "description": "Wanneer true is de waarde mogelijk onjuist en wordt juistheid op dit moment onderzocht. Zie toelichting.",
+        "properties": {
+            "naam": {
+                "type": "boolean"
+            },
+            "geometrie": {
+                "type": "boolean"
+            },
+            "status": {
+                "type": "boolean"
+            },
+            "toelichting": {
+                "type": "string",
+                "toelichting": "Woonplaats bestaat mogelijk niet."
+            }
+        }
+}

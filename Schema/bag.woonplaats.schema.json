@@ -1,0 +1,48 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.woonplaats.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "type": "object",
+    "title": "Woonplaats",
+    "description": "Een woonplaats is een gedeelte van het grondgebied van de gemeente met een naam.",
+    "properties": {
+        "identificatie": {
+            "type": "string"
+        },
+        "domein": {
+            "type": "string",
+            "description": "Het domein waartoe de identificatie behoort."
+        },
+        "naam": {
+            "type": "string",
+            "example": "Duiven",
+            "description": "De naam van de woonplaats"
+        },
+        "status": {
+            "type": "string",
+            "enum": [
+                "Woonplaats aangewezen"
+            ],
+            "description": "Een aanduiding van alle waarden die de status van een woonplaats kan aannemen."
+        },
+        "geconstateerd": {
+            "type": "boolean",
+            "description": "Indicator dat de woonplaats in de registratie is opgenomen door een feitelijke constatering, zonder dat er een brondocument aan ten grondslag ligt. De woonplaats is mogelijk illegaal."
+        },
+        "documentdatum": {
+            "type": "string",
+            "format": "date",
+            "example": "2009-02-09",
+            "description": "De vaststellingsdatum van het brondocument dat de basis is voor opname, wijziging of een verwijdering van een object."
+        },
+        "documentnummer": {
+            "type": "string",
+            "example": "09.0898",
+            "description": "De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van een woonplaats heeft plaatsgevonden, binnen een gemeente. Alle karakters uit de MES-1 karakterset zijn toegestaan."
+        },
+        "mogelijkOnjuist": {
+            "type": "object",
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.woonplaatsMogelijkOnjuist.schema.json"
+        }
+    }
+}

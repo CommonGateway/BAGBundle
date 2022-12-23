@@ -1,0 +1,44 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.pointGeo.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "type": "object",
+    "title": "PointGeo",
+    "properties": {
+        "type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "Point"
+            ]
+        },
+        "coordinates": {
+            "required": true,
+            "type": "number",
+            "coordinates": [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              ]
+        }
+    },
+    "required": [
+        "type",
+        "coordinates"
+    ]
+}

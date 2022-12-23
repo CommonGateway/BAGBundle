@@ -1,0 +1,18 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.puntOfVlak.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "type": "object",
+    "title": "PuntOfVlak",
+    "description": "Een samengesteld geometriegegevenstype waarbij wordt afgedwongen dat voor de geometrie een keuze gemaakt moet worden tussen een punt of een vlak.",
+    "properties": {
+        "punt": {
+            "type": "object",
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.pointGeo.schema.json"
+        },
+        "vlak": {
+            "type": "object",
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.polygonGeo.schema.json"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.pandMogelijkOnjuist.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "type": "object",
+    "title": "PandMogelijkOnjuist",
+    "description": "Wanneer true is de waarde mogelijk onjuist en wordt juistheid op dit moment onderzocht. Zie toelichting.",
+    "properties": {
+        "geometrie": {
+            "type": "boolean"
+        },
+        "oorspronkelijkBouwjaar": {
+            "type": "boolean"
+        },
+        "status": {
+            "type": "boolean"
+        },
+        "toelichting": {
+            "type": "string",
+            "example": "Mogelijk is de bouw al gereed of is het pand niet gerealiseerd."
+        }
+    }
+}
