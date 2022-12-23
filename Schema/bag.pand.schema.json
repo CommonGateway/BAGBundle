@@ -17,9 +17,7 @@
         },
         "geometrie": {
             "type": "object",
-            "items": {
-                "$ref": "https://vng.opencatalogi.nl/schemas/bag.polygonGeo.schema.json"
-            }
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.polygonGeo.schema.json"
         },
         "oorspronkelijkBouwjaar": {
             "type": "integer",
@@ -59,16 +57,12 @@
         },
         "nummeraanduidingIdentificaties": {
             "type": "object",
-            "items": {
-                "$ref": "https://vng.opencatalogi.nl/schemas/bag.nummeraanduidingIdentificatiesArray.schema.json"
-            },
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.nummeraanduidingIdentificatiesArray.schema.json",
             "description":"Identificatie(s) van de hoofd- en nevenadressen van het pand."
         },
         "mogelijkOnjuist": {
             "type": "object",
-            "items": {
-                "$ref" : "https://vng.opencatalogi.nl/schemas/bag.pandMogelijkOnjuist.schema.json"
-            },
+            "$ref" : "https://vng.opencatalogi.nl/schemas/bag.pandMogelijkOnjuist.schema.json",
             "description":"Wanneer true is de waarde mogelijk onjuist en wordt juistheid op dit moment onderzocht. Zie toelichting."
         }
     }

@@ -8,15 +8,11 @@
     "properties": {
         "punt": {
             "type": "object",
-            "items": {
-                "$ref": "https://vng.opencatalogi.nl/schemas/bag.pointGeo.schema.json"
-            }
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.pointGeo.schema.json"
         },
         "vlak": {
             "type": "object",
-            "items": {
-                "$ref": "https://vng.opencatalogi.nl/schemas/bag.polygonGeo.schema.json"
-            }
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.polygonGeo.schema.json"
         }
     }
 }

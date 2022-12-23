@@ -42,9 +42,7 @@
         },
         "mogelijkOnjuist": {
             "type": "object",
-            "items": {
-                "$ref": "https://vng.opencatalogi.nl/schemas/bag.woonplaatsMogelijkOnjuist.schema.json"
-            }
+            "$ref": "https://vng.opencatalogi.nl/schemas/bag.woonplaatsMogelijkOnjuist.schema.json"
         }
     }
 }
