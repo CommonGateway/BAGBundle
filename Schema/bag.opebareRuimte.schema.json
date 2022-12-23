@@ -18,8 +18,26 @@
             "description": "De naam die door de gemeente aan een openbare ruimte is gegeven.",
             "example": "Laan van de landinrichtingscommissie Duiven-Westervoort"
         },
-        "type": {},
-        "status": {},
+        "type": {
+            "type": "string",
+            "description": "Een codering van de verschillende waarden die de typering van een openbare ruimte kan aannemen.",
+            "enum": [
+                "Weg",
+                "Water",
+                "Spoorbaan",
+                "Terrein",
+                "Kunstwerk",
+                "Landschappelijk gebied",
+                "Administratief gebied"
+            ]
+        },
+        "status": {
+            "type": "string",
+            "description": "Een aanduiding van alle waarden die de status van een openbare ruimte of een nummeraanduiding kan aannemen.",
+            "enum": [
+                "Naamgeving uitgegeven"
+            ]
+        },
         "korteNaam": {
             "type": "string",
             "description": "De officiële openbareruimtenaam of een verkorte versie. Beiden hebben maximaal 24 tekens.",

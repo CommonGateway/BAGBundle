@@ -33,7 +33,13 @@
             "description": "Door PostNL vastgestelde code die bij een bepaalde combinatie van een straatnaam en een huisnummer hoort.",
             "example": "6922KZ"
         },
-        "status": {},
+        "status": {
+            "type": "string",
+            "description": "Een aanduiding van alle waarden die de status van een openbare ruimte of een nummeraanduiding kan aannemen.",
+            "enum": [
+                "Naamgeving uitgegeven"
+            ]
+        },
         "geconstateerd": {
             "type": "boolean",
             "description": "Indicator dat de nummeraanduiding in de registratie is opgenomen door een feitelijke constatering, zonder dat er sprake was van een brondocument/vergunning. De nummeraanduiding is mogelijk illegaal."

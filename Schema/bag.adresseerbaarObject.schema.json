@@ -15,14 +15,36 @@
             "type": "string",
             "description": "Het domein waartoe de identificatie behoort."
         },
-        "type": {},
+        "type": {
+            "type": "string",
+            "enum": [
+                "verblijfsobject",
+                "standp[laats",
+                "ligplaats"
+            ]
+        },
         "documentdatum": {
             "type": "string",
             "description": "De vaststellingsdatum van het brondocument dat de basis is voor opname, wijziging of een verwijdering van een object.",
             "example": "2019-11=22",
             "format": "date"
         },
-        "gebruiksdoelen": {},
+        "gebruiksdoelen": {
+            "type": "string",
+            "enum": [
+                "woonfunctie",
+                "bijeenkomstfunctie",
+                "celfunctie",
+                "gezondheidszorgfunctie",
+                "industriefunctie",
+                "kantoorfunctie",
+                "logiesfunctie",
+                "onderwijsfunctie",
+                "sportfunctie",
+                "winkelfunctie",
+                "overige gebruiksfunctie"
+            ]
+        },
         "geconstateerd": {
             "type": "boolean",
             "description": "Indicatie dat een standplaats, ligplaats of verblijfsobject in de registratie is opgenomen door een feitelijke constatering, zonder dat er een brondocument aan ten grondslag ligt. Het adresseerbaar object is mogelijk illegaal."
@@ -45,7 +67,17 @@
         "oppervlakte": {
             "type": "integer"
         },
-        "status": {},
+        "status": {
+            "type": "string",
+            "enum": [
+                "Plaats aangewezen",
+                "Verblijfsobject gevormd",
+                "Verblijfsobject in gebruik (niet ingemeten)",
+                "Verblijfsobject in gebruik",
+                "Verbouwing verblijfsobject",
+                "Verblijfsobject buiten gebruik"
+            ]
+        },
         "mogelijkOnjuist": {
             "type": "array",
             "items": {
