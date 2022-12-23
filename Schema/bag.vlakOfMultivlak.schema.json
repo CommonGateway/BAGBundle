@@ -1,0 +1,22 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.vlakOfMultivlak.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "type": "object",
+    "title": "VlakOfMultivlak",
+    "description": "Een samengesteld geometriegegevenstype waarbij wordt afgedwongen dat voor de geometrie een keuze gemaakt moet worden tussen een vlak (GM_Surface) of een multivlak (GM_MultiSurface).",
+    "properties": {
+        "vlak" :{
+            "type": "object",
+            "items": {
+                "$ref": "https://vng.opencatalogi.nl/schemas/bag.polygonGeo.schema.json"
+            }
+        },
+        "multivlak" :{
+            "type": "object",
+            "items": {
+                "$ref": "https://vng.opencatalogi.nl/schemas/bag.multipolygonGeo.schema.json"
+            }
+        }
+    }
+}

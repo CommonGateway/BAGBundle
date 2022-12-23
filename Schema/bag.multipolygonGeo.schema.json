@@ -1,0 +1,44 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.multipolygonGeo.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1",
+    "type": "object",
+    "title": "MultiPolygonGeo",
+    "properties": {
+        "type": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "MultiPolygon"
+            ]
+        },
+        "coordinates": {
+            "required": true,
+            "type": "number",
+            "coordinates": [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              ]
+        }
+    },
+    "required": [
+        "type",
+        "coordinates"
+    ]
+}

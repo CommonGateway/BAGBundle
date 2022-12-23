@@ -1,51 +1,33 @@
+
 {
-    "$id": "https://opencatalogi.nl/example.schema.json",
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.pand.schema.json",
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "version": "0.1",
-    "title": "Pand",
     "type": "object",
+    "title": "Pand",
+    "description": "Een pand is een bouwkundige, constructief zelfstandige eenheid die direct en duurzaam met de aarde is verbonden en betreedbaar en afsluitbaar is.",
     "properties": {
-      "pandidentificatie": {
-        "type": "string",
-        "example": "0226100000008856",
-        "description": "Identificatie van een pand uit de BAG. Deze is 16 cijfers lang.",
-        "required": true
-      },
-      "adresseerbaarObjectIdentificatie": {
-        "type": "string",
-        "example": "adresseerbaarObjectIdentificatie=0226010000038820",
-        "$ref": "#/definitions/AdresseerbaarObject",
-        "description": "De identificatie van een adresseerbaar object uit de BAG. Deze is 16 cijfers lang en kan een verblijfsobject, een standplaats of een ligplaats zijn."
-      },
-      "nummeraanduidingIdentificatie": {
-        "type": "string",
-        "example": "nummeraanduidingIdentificatie=0226200000038923",
-        "description": "Identificatie van een nummeraanduiding uit de BAG.",
-        "minLength": 16,
-        "maxLength": 16
-      },
-      "locatie": {
-        "type": "array",
-        "format": "number",
-        "items": {
-            "maxLength": 2
+        "identificatie": {
+            "type": "string",
+            "description": "De unieke aanduiding van een pand. Elk pand waarvan gegevens zijn opgenomen in de BAG wordt uniek aangeduid door middel van een identificatiecode."
         },
-        "example": "locatie=196733.51,439931.89",
-        "description": "Coördinaten van een locatie die als query-parameter gebruikt wordt om een object te zoeken. Let op, explode is false dus het formaat is ?locatie=196733.51,439931.89"
-      },
-      "bbox": {
-        "type": "array",
-        "format": "number",
-        "example": "bbox=196733.51,439931.89,196833.51,440031.89",
-        "$ref":"#/definitions/AdresseerbaarObject",
-        "description": "Rechthoek waarbinnen het object dat je zoekt valt. Objecten die de rand van de rechthoek raken of kruisen worden in het zoekresultaat meegenomen. "
-    },
-    "statusPand":{
-        "type": "array",
-        "format": "StatusPandEnum",
-        "items": {
-            "title": "StatusPandEnum",
-            "type": "non-empty",
+        "domein": {
+            "type": "string",
+            "description": "Het domein waartoe de identificatie behoort."
+        },
+        "geometrie": {
+            "type": "object",
+            "items": {
+                "$ref": "https://vng.opencatalogi.nl/schemas/bag.polygonGeo.schema.json"
+            }
+        },
+        "oorspronkelijkBouwjaar": {
+            "type": "integer",
+            "example": "1991",
+            "description": "Het jaar waarin een pand oorspronkelijk als bouwkundig gereed is opgeleverd. Door de gemeente wordt een inschatting gemaakt van het bouwjaar, en aangepast als het pand wordt opgeleverd. Wijzigingen aan een pand na oplevering leiden niet tot wijziging van het bouwjaar."
+        },
+        "status": {
+            "type": "string",
             "enum": [
                 "Bouwvergunning verleend",
                 "Bouw gestart",
@@ -55,23 +37,39 @@
                 "Sloopvergunning verleend",
                 "Pand buiten gebruik"
             ]
-          },
-          "description": "Status van het pand."    
-    },
-    "geconstateerd": {
-        "type": "boolean",
-        "description": "Geeft aan of naar geconstateerde objecten moet worden gezocht."
-    },
-    "bouwjaar":{
-        "type":"object",
-        "format":"BouwjaarFilter",
-        "items": {
-            "title": "BouwjaarFilter"
         },
-        "description": "Bouwjaar van het pand. Geeft het minimale en/of maximale bouwjaar aan van het pand waarnaar moet worden gezocht. Een bouwjaar is een natuurlijk getal tussen 0 (minimaal) en 9999 (maximaal). Bv: bouwjaar[min]=1970&bouwjaar[max]=2010"
+        "geconstateerd": {
+            "type": "boolean",
+            "description": "Indicatie dat het pand in de registratie is opgenomen door een feitelijke constatering, zonder dat er sprake was van een brondocument/vergunning. Het pand is mogelijk illegaal."
+        },
+        "documentdatum": {
+            "type": "string",
+            "format": "date",
+            "example": "2009-05-12",
+            "description": "De vaststellingsdatum van het brondocument dat de basis is voor opname, wijziging of een verwijdering van een object."
+        },
+        "documentnummer":{
+            "type": "string",
+            "example": "09.BW.0273",
+            "description":"De unieke aanduiding van het brondocument op basis waarvan een opname, mutatie of een verwijdering van gegevens ten aanzien van een woonplaats heeft plaatsgevonden, binnen een gemeente. Alle karakters uit de MES-1 karakterset zijn toegestaan."
+        },
+        "adresseerbaarObjectIdentificaties": {
+            "type": "string",
+            "example": "0226010000038820"
+        },
+        "nummeraanduidingIdentificaties": {
+            "type": "object",
+            "items": {
+                "$ref": "https://vng.opencatalogi.nl/schemas/bag.nummeraanduidingIdentificatiesArray.schema.json"
+            },
+            "description":"Identificatie(s) van de hoofd- en nevenadressen van het pand."
+        },
+        "mogelijkOnjuist": {
+            "type": "object",
+            "items": {
+                "$ref" : "https://vng.opencatalogi.nl/schemas/bag.pandMogelijkOnjuist.schema.json"
+            },
+            "description":"Wanneer true is de waarde mogelijk onjuist en wordt juistheid op dit moment onderzocht. Zie toelichting."
+        }
     }
-  },
-  "required": [
-    "pandidentificatie"
-  ]
 }
