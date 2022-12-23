@@ -1,0 +1,32 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.adresseerbaarObjectMogelijkOnjuist.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "AdresseerbaarObjectMogelijkOnjuist",
+    "description": "Wanneer true is de waarde mogelijk onjuist en wordt juistheid op dit moment onderzocht. Zie toelichting.",
+    "type": "object",
+    "properties": {
+        "gebruiksdoelen": {
+            "type": "boolean"
+        },
+        "geometrie": {
+            "type": "boolean"
+        },
+        "nummeraanduidingIdentificaties": {
+            "type": "boolean"
+        },
+        "pandIdentificaties": {
+            "type": "boolean"
+        },
+        "oppervlakte": {
+            "type": "boolean"
+        },
+        "status": {
+            "type": "boolean"
+        },
+        "toelichting": {
+            "type": "string",
+            "example": "Locatie/contour mogelijk onjuist."
+        }
+    }
+}

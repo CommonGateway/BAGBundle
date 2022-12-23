@@ -1,0 +1,22 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.bouwjaarFilter.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "BouwjaarFilter",
+    "description": "Zoek binnen een bereik van de opgegeven minimumwaarde tot maximumwaarde. De opgegeven minimumwaarde moet lager zijn dan de opgegeven maximumwaarde.",
+    "type": "object",
+    "properties": {
+        "min": {
+            "type": "integer",
+            "description": "Zoek naar waarden groter of gelijk aan de opgegeven waarde.",
+            "minLength": "0",
+            "maxLength": "9999"
+        },
+        "max": {
+            "type": "integer",
+            "description": "Zoek naar waarden kleiner dan de opgegeven waarde.",
+            "minLength": "0",
+            "maxLength": "9999"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.zoekResultaat.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "ZoekResultaat",
+    "description": "Resultaat van een zoekoperatie dat je kunt gebruiken om een adres te vinden met /adressen.",
+    "type": "object",
+    "properties": {
+        "omschrijving": {
+            "type": "string",
+            "description": "Omschrijving van het zoekresultaat."
+        },
+        "identificatie": {
+            "type": "string",
+            "description": "Identificatie van het zoekresultaat."
+        }
+    }
+}

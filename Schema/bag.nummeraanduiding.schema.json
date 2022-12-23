@@ -1,0 +1,69 @@
+{
+    "$id": "https://vng.opencatalogi.nl/schemas/bag.nummeraanduiding.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "version": "0.1.0",
+    "title": "Nummeraanduiding",
+    "description": "Een postcode, huisnummer met mogelijk een huisletter en huisnummertoevoeging die hoort bij een verblijfsobject, een standplaats of een ligplaats.",
+    "type": "object",
+    "properties": {
+        "identificatie": {
+            "type": "string"
+        },
+        "domein": {
+            "type": "string",
+            "description": "Het domein waartoe de identificatie behoort."
+        },
+        "huisnummer": {
+            "type": "integer",
+            "description": "Nummer dat door de gemeente aan een adresseerbaar object is gegeven.",
+            "example": "1"
+        },
+        "huisletter": {
+            "type": "string",
+            "description": "Toevoeging aan een huisnummer in de vorm van een letter die door de gemeente aan een adresseerbaar object is gegeven.",
+            "example": "A"
+        },
+        "huisnummertoevoeging": {
+            "type": "string",
+            "description": "Toevoeging aan een huisnummer of een combinatie van huisnummer en huisletter die door de gemeente aan een adresseerbaar object is gegeven.",
+            "example": "bis"
+        },
+        "postcode": {
+            "type": "string",
+            "description": "Door PostNL vastgestelde code die bij een bepaalde combinatie van een straatnaam en een huisnummer hoort.",
+            "example": "6922KZ"
+        },
+        "status": {},
+        "geconstateerd": {
+            "type": "boolean",
+            "description": "Indicator dat de nummeraanduiding in de registratie is opgenomen door een feitelijke constatering, zonder dat er sprake was van een brondocument/vergunning. De nummeraanduiding is mogelijk illegaal."
+        },
+        "documentdatum": {
+            "type": "string",
+            "description": "De vaststellingsdatum van het brondocument dat de basis is voor opname, wijziging of een verwijdering van een object.",
+            "example": "2019-11-25",
+            "format": "date"
+        },
+        "documentnummer": {
+            "type": "string",
+            "description": "Identificatie van het brondocument dat ten grondslag ligt aan de opname, mutatie of een verwijdering van gegevens.",
+            "example": "Duiven 25112019"
+        },
+        "woonplaatsIdentifcatie": {
+            "type": "string",
+            "description": "Een nummeraanduiding ligt in een woonplaats.",
+            "example": "2096"
+        },
+        "openbareRuimteIdentificatie": {
+            "type": "string",
+            "description": "Een nummeraanduiding ligt aan een openbare ruimte.",
+            "example": "0226300000136166"
+        },
+        "mogelijkOnjuist": {
+            "type": "array",
+            "items": {
+                "$ref": "ttps://vng.opencatalogi.nl/schemas/bag.nummeraanduidingMogelijkOnjuist.schema.json"
+            }
+        }
+    }
+}
